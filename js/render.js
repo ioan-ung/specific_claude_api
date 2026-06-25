@@ -74,7 +74,7 @@ window.ChatApp = window.ChatApp || {};
   };
 
   App.addMessage = function (role, text) {
-    const messagesEl = App.els.messagesEl;
+    const messagesEl = App.els.messagesEl;  
     const ph = messagesEl.querySelector('.placeholder');
     if (ph) ph.remove();
     const row = document.createElement('div');
