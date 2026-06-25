@@ -4,28 +4,10 @@ window.ChatApp = window.ChatApp || {};
 
 (function (App) {
   App.state = {
-    apiKey: '',
     history: []
   };
 
   const els = App.els;
-
-  // Salvarea cheii API (rămâne doar în memorie, pe durata sesiunii).
-  els.saveBtn.addEventListener('click', function () {
-    const v = els.keyInput.value.trim();
-    if (!v) {
-      App.setStatus('Introdu o cheie validă mai întâi.', false);
-      return;
-    }
-    if (!v.startsWith('sk-ant-')) {
-      App.setStatus('Atenție: cheile Anthropic începe de obicei cu "sk-ant-". Verifică ce ai lipit.', false);
-    }
-    App.state.apiKey = v;
-    els.keyInput.value = '••••••••••••••••';
-    els.keyInput.disabled = true;
-    els.saveBtn.disabled = true;
-    App.setStatus('Cheie salvată local, doar pentru această sesiune de browser.', true);
-  });
 
   // Ștergerea conversației salvate.
   els.clearBtn.addEventListener('click', function () {
@@ -36,10 +18,6 @@ window.ChatApp = window.ChatApp || {};
   async function send() {
     const text = els.inputEl.value.trim();
     if (!text) return;
-    if (!App.state.apiKey) {
-      App.setStatus('Salvează mai întâi cheia API.', false);
-      return;
-    }
 
     App.addMessage('user', text);
     App.state.history.push({ role: 'user', content: text });
@@ -52,7 +30,6 @@ window.ChatApp = window.ChatApp || {};
 
     try {
       const data = await App.callClaude({
-        apiKey: App.state.apiKey,
         model: els.modelSelect.value,
         messages: App.state.history
       });
