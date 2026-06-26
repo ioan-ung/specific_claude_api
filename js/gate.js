@@ -48,5 +48,24 @@
     }
   });
 
-  input.focus();
+  // Arată/ascunde panoul la click pe "Contul meu"
+  var loginBtn = document.getElementById('ns-login-btn');
+  var closeBtn = document.getElementById('gate-pw-close');
+  var pwPanel  = document.getElementById('gate-pw-panel');
+
+  function showPanel() {
+    pwPanel.style.display = 'flex';
+    input.value = '';
+    msg.textContent = '';
+    input.focus();
+  }
+  function hidePanel() {
+    pwPanel.style.display = 'none';
+  }
+
+  if (loginBtn) loginBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    pwPanel.style.display === 'flex' ? hidePanel() : showPanel();
+  });
+  if (closeBtn) closeBtn.addEventListener('click', hidePanel);
 })();

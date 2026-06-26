@@ -9,12 +9,159 @@
 <body class="locked">
 <!-- Poartă de parolă: prima fereastră, acoperă tot până la deblocare. -->
 <div id="gate">
-  <div class="gate-box">
-    <h2>Acces protejat</h2>
-    <input type="password" id="gate-password" placeholder="Parolă" autocomplete="off" />
-    <button id="gate-btn">Intră</button>
-    <p id="gate-msg"></p>
-  </div>
+  <div class="ns-site">
+
+    <!-- Bara de sus -->
+    <div class="ns-topbar">
+      <span class="ns-date">Joi, 26 Iunie 2026</span>
+      <div class="ns-topbar-right">
+        <a href="#" class="ns-top-link">Meteo</a>
+        <a href="#" class="ns-top-link">TV Live</a>
+        <a href="#" class="ns-top-link">Newsletter</a>
+        <a href="#" id="ns-login-btn" class="ns-top-link ns-login-btn">&#9881; Contul meu</a>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="ns-header">
+      <div class="ns-logo">
+        <span class="ns-logo-dot">&#9679;</span>
+        <span class="ns-logo-text">ȘTIRI<span>RO</span></span>
+      </div>
+      <nav class="ns-nav">
+        <a href="#" class="ns-nav-link ns-nav-active">Actualitate</a>
+        <a href="#" class="ns-nav-link">Politică</a>
+        <a href="#" class="ns-nav-link">Economie</a>
+        <a href="#" class="ns-nav-link">Sport</a>
+        <a href="#" class="ns-nav-link">Extern</a>
+        <a href="#" class="ns-nav-link">Sănătate</a>
+        <a href="#" class="ns-nav-link">Video</a>
+      </nav>
+      <div class="ns-header-search">
+        <input type="text" placeholder="Caută știri..." class="ns-search-input" />
+      </div>
+    </header>
+
+    <!-- Ticker breaking news -->
+    <div class="ns-ticker">
+      <span class="ns-ticker-label">BREAKING</span>
+      <div class="ns-ticker-wrap">
+        <span class="ns-ticker-text">
+          România învinge Columbia 2-0 și merge în optimile Cupei Mondiale 2026 &nbsp;•&nbsp;
+          Guvernul aprobă creșterea salariului minim la 4.050 lei brut de la 1 iulie &nbsp;•&nbsp;
+          Cod roșu de caniculă în 18 județe: temperaturi de până la 43°C &nbsp;•&nbsp;
+          BNR reduce dobânda cheie la 5,75% — prima scădere din ultimii 3 ani &nbsp;•&nbsp;
+          Autostrada A8: primii 45 km sunt inaugurați oficial de premier &nbsp;•&nbsp;
+        </span>
+      </div>
+    </div>
+
+    <!-- Conținut principal -->
+    <main class="ns-main">
+
+      <!-- Hero -->
+      <div class="ns-hero">
+        <div class="ns-hero-img ns-img-sport"></div>
+        <div class="ns-hero-body">
+          <span class="ns-tag ns-tag-sport">SPORT · CUPA MONDIALĂ</span>
+          <h2 class="ns-hero-title">România face ISTORIE: victorie dramatică cu Columbia și calificare în optimile CM 2026</h2>
+          <p class="ns-hero-desc">Tricolorii au reușit o performanță de excepție la turneul final din America de Nord. Golurile lui Drăgușin (min. 34) și Mihăilă (min. 78) au decis confruntarea în fața a 80.000 de spectatori.</p>
+          <div class="ns-hero-meta">
+            <span class="ns-author">Redacția Sport</span>
+            <span class="ns-time">acum 1 oră</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid știri -->
+      <div class="ns-grid">
+
+        <div class="ns-card">
+          <div class="ns-card-img ns-img-pol"></div>
+          <div class="ns-card-body">
+            <span class="ns-tag ns-tag-pol">POLITICĂ</span>
+            <h3 class="ns-card-title">Guvernul Ciolacu, vot de învestitură după negocieri de ultim moment între PSD și PNL</h3>
+            <p class="ns-card-desc">Coaliția a ajuns la un acord în privința portofoliilor cheie după o noapte de negocieri la Palatul Victoria.</p>
+            <span class="ns-time">acum 3 ore</span>
+          </div>
+        </div>
+
+        <div class="ns-card">
+          <div class="ns-card-img ns-img-eco"></div>
+          <div class="ns-card-body">
+            <span class="ns-tag ns-tag-eco">ECONOMIE</span>
+            <h3 class="ns-card-title">România primește 3,2 mld. euro din PNRR după îndeplinirea jaloanelor din trimestrul I</h3>
+            <p class="ns-card-desc">Comisia Europeană a validat a șasea tranșă a Planului Național de Redresare și Reziliență.</p>
+            <span class="ns-time">acum 5 ore</span>
+          </div>
+        </div>
+
+        <div class="ns-card">
+          <div class="ns-card-img ns-img-weather"></div>
+          <div class="ns-card-body">
+            <span class="ns-tag ns-tag-act">ACTUALITATE</span>
+            <h3 class="ns-card-title">Val de căldură extremă: ANM menține codul roșu de caniculă până duminică în toată țara</h3>
+            <p class="ns-card-desc">Autoritățile au activat planurile de intervenție. Centrele sociale primesc persoanele vulnerabile afectate de căldură.</p>
+            <span class="ns-time">acum 6 ore</span>
+          </div>
+        </div>
+
+        <div class="ns-card">
+          <div class="ns-card-img ns-img-infra"></div>
+          <div class="ns-card-body">
+            <span class="ns-tag ns-tag-act">ACTUALITATE</span>
+            <h3 class="ns-card-title">Autostrada A8 Moldova: primii 45 km inaugurați. Premierul: „Un vis împlinit pentru Moldova"</h3>
+            <p class="ns-card-desc">Sectorul Târgu Mureș – Miercurea Nirajului este acum deschis circulației. Restul traseului, promis până în 2028.</p>
+            <span class="ns-time">ieri, 19:15</span>
+          </div>
+        </div>
+
+        <div class="ns-card">
+          <div class="ns-card-img ns-img-sanatate"></div>
+          <div class="ns-card-body">
+            <span class="ns-tag ns-tag-san">SĂNĂTATE</span>
+            <h3 class="ns-card-title">Ministerul Sănătății lansează programul național de screening pentru cancer de col uterin</h3>
+            <p class="ns-card-desc">Programul va acoperi inițial 12 județe și urmează să fie extins la nivel național până în 2027.</p>
+            <span class="ns-time">ieri, 14:40</span>
+          </div>
+        </div>
+
+        <div class="ns-card">
+          <div class="ns-card-img ns-img-extern"></div>
+          <div class="ns-card-body">
+            <span class="ns-tag ns-tag-ext">EXTERN</span>
+            <h3 class="ns-card-title">NATO Summit 2026: România propune extinderea prezenței aliate la Marea Neagră</h3>
+            <p class="ns-card-desc">Președintele a susținut la Haga necesitatea întăririi flancului estic în contextul tensiunilor regionale persistente.</p>
+            <span class="ns-time">ieri, 11:00</span>
+          </div>
+        </div>
+
+      </div><!-- /ns-grid -->
+    </main>
+
+    <footer class="ns-footer">
+      <p>© 2026 StiriRO.ro &nbsp;·&nbsp; Toate drepturile rezervate &nbsp;·&nbsp;
+        <a href="#">Politică de confidențialitate</a> &nbsp;·&nbsp;
+        <a href="#">Termeni și condiții</a> &nbsp;·&nbsp;
+        <a href="#">Contact</a>
+      </p>
+    </footer>
+
+    <!-- Panou autentificare — ascuns, apare la click pe "Contul meu" -->
+    <div id="gate-pw-panel">
+      <div class="pw-header">
+        <span>Autentificare</span>
+        <button id="gate-pw-close" type="button">&#10005;</button>
+      </div>
+      <div class="pw-body">
+        <label class="pw-label">Parolă</label>
+        <input type="password" id="gate-password" placeholder="Introduceți parola" autocomplete="off" />
+        <button id="gate-btn" type="button">Intră în cont</button>
+        <p id="gate-msg"></p>
+      </div>
+    </div>
+
+  </div><!-- /ns-site -->
 </div>
 
 <div class="app">

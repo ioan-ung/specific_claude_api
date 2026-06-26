@@ -1,37 +1,333 @@
 * { box-sizing: border-box; }
 
-/* Poarta de parolă acoperă tot ecranul; cât timp body e .locked, restul e ascuns. */
+/* ─── Gate: acoperă tot ecranul până la deblocare ─── */
 body.locked .app { display: none; }
 #gate {
   position: fixed;
   inset: 0;
-  background: #1c1c1a;
+  z-index: 100;
+  overflow-y: auto;
+  background: #eaeaea;
+}
+
+/* ════════════════════════════════════════
+   SITE DE ȘTIRI — camuflaj pentru gate
+   ════════════════════════════════════════ */
+.ns-site {
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+/* Bara de sus */
+.ns-topbar {
+  background: #111;
+  color: #aaa;
+  font-size: 12px;
+  padding: 5px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ns-topbar-right { display: flex; align-items: center; gap: 4px; }
+.ns-top-link {
+  color: #bbb;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 3px;
+  transition: color .15s;
+}
+.ns-top-link:hover { color: #fff; }
+.ns-login-btn {
+  background: #c0202a;
+  color: #fff !important;
+  font-weight: 600;
+  margin-left: 8px;
+}
+.ns-login-btn:hover { background: #a0181f !important; }
+
+/* Header */
+.ns-header {
+  background: #c0202a;
+  padding: 0 24px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 100;
+  gap: 32px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
 }
-.gate-box {
+.ns-logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 14px 0;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.ns-logo-dot { color: #ffd000; font-size: 22px; line-height: 1; }
+.ns-logo-text {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.ns-logo-text span { color: #ffd000; }
+.ns-nav { display: flex; flex: 1; }
+.ns-nav-link {
+  color: rgba(255,255,255,.82);
+  text-decoration: none;
+  padding: 18px 13px;
+  font-size: 13.5px;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  transition: all .15s;
+  white-space: nowrap;
+}
+.ns-nav-link:hover, .ns-nav-active {
+  color: #fff;
+  border-bottom-color: #ffd000;
+}
+.ns-header-search { margin-left: auto; flex-shrink: 0; }
+.ns-search-input {
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 20px;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 14px;
+  width: 180px;
+  outline: none;
+  transition: background .2s;
+}
+.ns-search-input::placeholder { color: rgba(255,255,255,.6); }
+.ns-search-input:focus { background: rgba(255,255,255,.25); }
+
+/* Ticker */
+.ns-ticker {
+  background: #1a1a1a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  overflow: hidden;
+  height: 34px;
+}
+.ns-ticker-label {
+  background: #c0202a;
+  padding: 0 14px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  flex-shrink: 0;
+}
+.ns-ticker-wrap { overflow: hidden; flex: 1; }
+.ns-ticker-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ns-ticker 36s linear infinite;
+}
+@keyframes ns-ticker {
+  0%   { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Layout principal */
+.ns-main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px 20px 30px;
+}
+
+/* Hero */
+.ns-hero {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  margin-bottom: 22px;
+}
+.ns-hero-img { min-height: 300px; }
+.ns-hero-body {
+  padding: 28px 26px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 12px;
-  width: 100%;
-  max-width: 300px;
-  padding: 28px;
-  border: 1px solid #444441;
-  border-radius: 12px;
-  background: #181816;
 }
-.gate-box h2 {
+.ns-hero-title {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
   margin: 0;
-  font-size: 17px;
-  font-weight: 500;
+  color: #111;
 }
-#gate-msg {
+.ns-hero-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.65;
   margin: 0;
+}
+.ns-hero-meta { display: flex; gap: 12px; align-items: center; margin-top: 4px; }
+.ns-author { font-size: 12px; color: #888; }
+
+/* Categoria tag */
+.ns-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 3px;
+  color: #fff;
+}
+.ns-tag-sport    { background: #1a6bba; }
+.ns-tag-pol      { background: #7b2d9e; }
+.ns-tag-eco      { background: #1a7a3c; }
+.ns-tag-act      { background: #c0202a; }
+.ns-tag-san      { background: #d97706; }
+.ns-tag-ext      { background: #374151; }
+
+/* Grilă știri */
+.ns-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.ns-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 5px rgba(0,0,0,.07);
+  transition: box-shadow .2s, transform .2s;
+  cursor: pointer;
+}
+.ns-card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,.13);
+  transform: translateY(-3px);
+}
+.ns-card-img { height: 162px; }
+.ns-card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ns-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
+  color: #111;
+}
+.ns-card-desc {
   font-size: 13px;
-  min-height: 16px;
-  color: #888780;
+  color: #666;
+  line-height: 1.55;
+  margin: 0;
+}
+.ns-time { font-size: 11.5px; color: #999; }
+
+/* Imagini placeholder — gradienți colorați */
+.ns-img-sport   { background: linear-gradient(135deg,#0d2f5c 0%,#1565c0 55%,#0d4a8c 100%); }
+.ns-img-pol     { background: linear-gradient(135deg,#2d1b4e 0%,#7b2d9e 60%,#3d1a60 100%); }
+.ns-img-eco     { background: linear-gradient(135deg,#003087 0%,#0052cc 100%); }
+.ns-img-weather { background: linear-gradient(135deg,#7f1d1d 0%,#ef4444 55%,#f97316 100%); }
+.ns-img-infra   { background: linear-gradient(135deg,#1c3a4a 0%,#0891b2 60%,#065f7e 100%); }
+.ns-img-sanatate{ background: linear-gradient(135deg,#78350f 0%,#d97706 60%,#92400e 100%); }
+.ns-img-extern  { background: linear-gradient(135deg,#1a2e1a 0%,#166534 60%,#14532d 100%); }
+
+/* Footer */
+.ns-footer {
+  background: #111;
+  color: #666;
+  text-align: center;
+  padding: 18px;
+  font-size: 12px;
+}
+.ns-footer a { color: #999; text-decoration: none; }
+.ns-footer a:hover { color: #fff; }
+
+/* ─── Panou autentificare ─── */
+#gate-pw-panel {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.28);
+  z-index: 200;
+  flex-direction: column;
+  overflow: hidden;
+  width: 320px;
+}
+.pw-header {
+  background: #c0202a;
+  color: #fff;
+  padding: 13px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 15px;
+}
+#gate-pw-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  line-height: 1;
+}
+#gate-pw-close:hover { background: rgba(255,255,255,.2); }
+.pw-body {
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pw-label { font-size: 13px; font-weight: 600; color: #333; }
+#gate-pw-panel #gate-password {
+  background: #f9f9f9;
+  color: #111;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  padding: 10px 13px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .15s;
+}
+#gate-pw-panel #gate-password:focus { border-color: #c0202a; }
+#gate-pw-panel #gate-btn {
+  background: #c0202a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 11px;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s;
+}
+#gate-pw-panel #gate-btn:hover { background: #a0181f; }
+#gate-msg {
+  font-size: 12.5px;
+  color: #c0202a;
+  margin: 0;
+  min-height: 15px;
+  font-family: inherit;
 }
 body {
   font-family: -apple-system, "Segoe UI", Arial, sans-serif;
