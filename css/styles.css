@@ -234,14 +234,19 @@ body.locked .app { display: none; }
 }
 .ns-time { font-size: 11.5px; color: #999; }
 
-/* Imagini placeholder — gradienți colorați */
-.ns-img-sport   { background: linear-gradient(135deg,#0d2f5c 0%,#1565c0 55%,#0d4a8c 100%); }
-.ns-img-pol     { background: linear-gradient(135deg,#2d1b4e 0%,#7b2d9e 60%,#3d1a60 100%); }
-.ns-img-eco     { background: linear-gradient(135deg,#003087 0%,#0052cc 100%); }
-.ns-img-weather { background: linear-gradient(135deg,#7f1d1d 0%,#ef4444 55%,#f97316 100%); }
-.ns-img-infra   { background: linear-gradient(135deg,#1c3a4a 0%,#0891b2 60%,#065f7e 100%); }
-.ns-img-sanatate{ background: linear-gradient(135deg,#78350f 0%,#d97706 60%,#92400e 100%); }
-.ns-img-extern  { background: linear-gradient(135deg,#1a2e1a 0%,#166534 60%,#14532d 100%); }
+/* Imagini știri */
+.ns-img-sport, .ns-img-pol, .ns-img-eco,
+.ns-img-weather, .ns-img-infra, .ns-img-sanatate, .ns-img-extern {
+  background-size: cover;
+  background-position: center;
+}
+.ns-img-sport    { background-image: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&q=80'); }
+.ns-img-pol      { background-image: url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80'); }
+.ns-img-eco      { background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80'); }
+.ns-img-weather  { background-image: url('https://images.unsplash.com/photo-1504370805625-d32c54b16100?w=800&q=80'); }
+.ns-img-infra    { background-image: url('https://images.unsplash.com/photo-1545459720-aac8509eb02d?w=800&q=80'); }
+.ns-img-sanatate { background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80'); }
+.ns-img-extern   { background-image: url('https://images.unsplash.com/photo-1569949381669-ecf31ae8b2a3?w=800&q=80'); }
 
 /* Footer */
 .ns-footer {
