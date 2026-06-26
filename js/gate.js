@@ -29,9 +29,9 @@
       return;
     }
     if (input.value === expected) {
-      // Parolă corectă: ascundem poarta și deblocăm aplicația.
-      overlay.remove();
+      overlay.style.display = 'none';
       document.body.classList.remove('locked');
+      hidePanel();
     } else {
       msg.textContent = 'Parolă greșită.';
       msg.style.color = '#F09595';
@@ -68,4 +68,17 @@
     pwPanel.style.display === 'flex' ? hidePanel() : showPanel();
   });
   if (closeBtn) closeBtn.addEventListener('click', hidePanel);
+
+  function showGate() {
+    overlay.style.display = '';
+    document.body.classList.add('locked');
+  }
+
+  // Re-show the gate when the window or tab loses focus.
+  window.addEventListener('blur', function () {
+    if (!document.body.classList.contains('locked')) showGate();
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden && !document.body.classList.contains('locked')) showGate();
+  });
 })();
